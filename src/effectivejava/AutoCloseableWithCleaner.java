@@ -1,11 +1,17 @@
+/*
 package effectivejava;
 
-import sun.misc.Cleaner;
+import sun.misc.*;
 
 // An autocloseable class using a cleaner as a safety net
 class Room implements AutoCloseable {
 
-	private static final Cleaner cleaner = Cleaner.create();
+	private static final Cleaner cleaner = Cleaner.create(new Object(), new Runnable() {
+		@Override
+		public void run() {
+			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		}
+	});
 
 	// Resource that requires cleaning. Must not refer to Room!
 	private static class State implements Runnable {
@@ -30,6 +36,7 @@ class Room implements AutoCloseable {
 	// Our cleanable. Cleans the room when it’s eligible for gc
 	
 	private final Cleaner.Cleanable cleanable;
+	Cleaner.
 
 	public Room(int numJunkPiles) {
 		state = new State(numJunkPiles);
@@ -45,3 +52,5 @@ class Room implements AutoCloseable {
 public class AutoCloseableWithCleaner {
 
 }
+
+*/
